@@ -99,7 +99,7 @@ class LearningAgent(Agent):
         # If it is not, create a new dictionary for that state
         #   Then, for each action available, set the initial Q-value to 0.0
 
-        if state not in self.Q:
+        if state not in self.Q and self.learning:
             self.Q[state] = dict()
             for action in self.valid_actions:
                 self.Q[state][action] = 0.0
@@ -117,20 +117,24 @@ class LearningAgent(Agent):
         
         # Choose a random next action
         if not self.learning:
-            random_action = random.choice(self.valid_actions)
+            action = random.choice(self.valid_actions)
         else:
-        # Choose a good action that maximizes the reward after execution
+        # Choose the best action that maximizes the reward after execution
             randomEpsilon = random.random()
+
+            # List of actions with the highest (identical) reward, usually only one action
+            bestActions = []
 
             if randomEpsilon >= self.epsilon:
                 maxQ = self.get_maxQ(self.state)
                 for act in self.Q[state]:
                     if self.Q[state][act] == maxQ:
-                        action = act
-                        break
+                        bestActions.append(act)
+                
+                # Now choose from the actions list
+                action = random.choice(bestActions)
             else:
                 action = random.choice(self.valid_actions)  
-
 
 
         ########### 
@@ -154,6 +158,7 @@ class LearningAgent(Agent):
         # When learning, implement the value iteration update rule
         #   Use only the learning rate 'alpha' (do not use the discount factor 'gamma')
 
+        # Using Bellman equation to update the Q-Table
         self.Q[state][action] = (1-self.alpha) * self.Q[state][action] + self.alpha * reward
 
         return

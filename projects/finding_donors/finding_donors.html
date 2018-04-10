@@ -13235,16 +13235,27 @@ I decided to apply all 6 models and ended up choosing the following three as the
 Applications: Handwriting recogntition, Image segmentation, credict card fraud detection
 Pros: Logisitc Regression could be performant in choosing the best applicants to get the admission for a uninversity based on grades, curricular actitvities, scores, etc.
 Cons: Not very good if our data is sparse and there are no linear relation among features</p>
+<ul>
+<li>What makes this model a good candidate for the problem? 
+This model is robust to noise and usually doesn't overfit training data. This model looks more promising since our labels are binary (&gt;50K and &lt;50k) and could be linearly splitted. Also the big size of training data makes this model to yield a good prediction accuracy using the Logistic Regression.</li>
+</ul>
 <p><strong>SGD Classifier</strong>
 Applications: Performance Contribution of Employees (<a href="http://www.iosrjournals.org/iosr-jbm/papers/Vol16-issue6/Version-3/I016637780.pdf">http://www.iosrjournals.org/iosr-jbm/papers/Vol16-issue6/Version-3/I016637780.pdf</a>), Text classification and natural language processing
 Pros: Works well when amount of training data is huge and sparse. 
 Cons: Could take a longer time as it tries tooptimiz the underlying model</p>
+<ul>
+<li>What makes this model a good candidate for the problem? 
+Since we have sparse data and we are trying to find the most fit class for each record, SGDClassifer could be useful using a loss function to predicting the class closest to the actual class.</li>
+</ul>
 <p><strong>Decision Tree Classifier</strong>
 Applications: Medical diagnosis of patients based on the symptoms, Direct marketing based on the demographic features of people, and basically any application where the data has a good structure in it (Spam detection, credit card fraud detection)
 Pros: Could detect and use the hidden data structure (using the features), easy to implement and understand, Works well where our feature have non-linear relationships and robust to the existance of outliers
-Cons: very prone to overfitting if regularization is not used</p>
-<p><strong>What makes this model a good candidate for the problem, given what you know about the data?</strong>
-<em>Logistic Regression</em>: This modek is robust to noise and usually doesn't overfit training data. This model looks more promising since our labels are binary (&gt;50K and &lt;50k) and could be linearly splitted. Also the big size of training data makes this model to yield a good prediction accuracy.</p>
+Cons: very prone to overfitting if regularization is not used.</p>
+<ul>
+<li>What makes this model a good candidate for the problem? 
+Decision Trees do a great job when it comes to splitting data using the feature and performing binary classification and could be a great fit for this problem.</li>
+</ul>
+<p><strong>What makes this model a good candidate for the problem, given what you know about the data?</strong></p>
 <p><strong>Referenecs:</strong></p>
 <ul>
 <li><a href="https://elitedatascience.com/machine-learning-algorithms">https://elitedatascience.com/machine-learning-algorithms</a></li>
@@ -15063,6 +15074,12 @@ After reading some articles on choosing the right method and algorithm for a mac
 <li>1- Logistic Regression</li>
 <li>2- SGD Classifier </li>
 <li>3- Decision Tree Classifier</li>
+</ul>
+<p>I'm choosing Logisitic Regression as the best candidate since based on the above charts:</p>
+<ul>
+<li>High Accuracy and F-Score on the full test set (.8 and .7 respectively)</li>
+<li>Not a high accuracy score on training data which means it didn't overfit to our training data.</li>
+<li>very short training time and excellent prediciton time (0.003s) compared to other models</li>
 </ul>
 
 </div>

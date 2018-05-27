@@ -25,7 +25,7 @@ def pca_results(good_data, pca):
 	dimensions = dimensions = ['Dimension {}'.format(i) for i in range(1,len(pca.components_)+1)]
 
 	# PCA components
-	components = pd.DataFrame(np.round(pca.components_, 4), columns = good_data.keys())
+	components = pd.DataFrame(np.round(pca.components_, 4), columns = list(good_data.keys()))
 	components.index = dimensions
 
 	# PCA explained variance

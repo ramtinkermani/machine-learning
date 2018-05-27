@@ -14063,7 +14063,7 @@ juM4juM4juM4U+T/A4QlrUkuXgO6AAAAAElFTkSuQmCC
 <li>discuss the distribution of the dataset? There seems to be many outliers in almost all items and that has caused the plots to be concentrated near 0. but still relations could be recognized if there's any.</li>
 <li>Are there any pairs of features which exhibit some degree of correlation? yes. The plots where you can see a linear relation between the axes could be considered as corelated: Detergent_paper and Grocery, Milk and Grocery.</li>
 <li>Does this confirm or deny your suspicions about the relevance of the feature you attempted to predict? yes it doesn. As shown in the previous question, Grocery and Detergents_paper have R62 scores close to 1 which is also verified by this plot.</li>
-<li>How is the data for those features distributed? Even though there are many outliers, we can still observe a (close to) linear relationship with Detergents_paper and Grocery items.</li>
+<li>How is the data for those features distributed? Even though there are many outliers, we can still observe a (close to) linear relationship with Detergents_paper and Grocery items. As seen here the data points are skewed to the left and not normally distributed. Since clustering algorithms require data points to be normally distributed, we need to apply normalization to take care of this issue to make the data points normally distributed. </li>
 </ul>
 
 </div>
@@ -19107,7 +19107,7 @@ Once you have performed this implementation, the dataset will be stored in the v
 <ul>
 <li>Are there any data points considered outliers for more than one feature based on the definition above? Yes there are some (e.g. item# 154)</li>
 <li>Should these data points be removed from the dataset? If there are many outliers that are adversley affecting our analysis, then yes.</li>
-<li>If any data points were added to the outliers list to be removed, explain why. Not removing any at this point.</li>
+<li>If any data points were added to the outliers list to be removed, explain why. Initially I didn't remove the outliers from the data set. Later I decided to remove the outliers which will help us achieve a more accurate model that represents the data better (by cancelling the noiose the outliers add to the system)</li>
 </ul>
 
 </div>
